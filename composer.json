@@ -36,7 +36,7 @@
   "prefer-stable": true,
   "scripts": {
     "post-autoload-dump": [
-      
+      "php -r \"new Quantic\\Chosen\\Matrix\\Deploy\""
     ]
   }
 }

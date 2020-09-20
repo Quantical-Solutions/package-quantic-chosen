@@ -12,11 +12,21 @@ class Auth
         $provider = config('chosen.providers');
         self::$class = $provider['users']['model'];
         $users = self::$class::get()->toArray();
-        dump($users);
+        //dump($users);
     }
 
     public static function id()
     {
 
+    }
+
+    public static function isAdmin()
+    {
+        return false;
+    }
+
+    public static function user()
+    {
+        return ['id' => 1, 'firstname' => 'Fred'];
     }
 }
