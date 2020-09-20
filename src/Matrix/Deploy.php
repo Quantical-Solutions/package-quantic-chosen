@@ -23,7 +23,7 @@ class Deploy
 
             $this->appResources = ROOTDIR . '/resources/views';
             $this->originalViews = dirname(__DIR__) . '/Clones/views';
-            $this->configFile = dirname(__DIR__) . '/Clones/views/chosen.php';
+            $this->configFile = dirname(__DIR__) . '/Clones/chosen.php';
 
             if (!file_exists(ROOTDIR . '/resources/views/chosen')) {
                 $this->alreadyDone = true;
@@ -43,14 +43,15 @@ class Deploy
 
         if (!file_exists($this->appResources . '/chosen')) {
 
+            mkdir($this->appResources . '/chosen');
             $files = scandir($this->originalViews . '/chosen');
             foreach ($files as $file) {
                 if ($file != '.' && $file != '..' && is_file($this->originalViews . '/chosen/' . $file)) {
-
+                    copy($this->originalViews . '/chosen/' . $file, $this->appResources . '/chosen/' . $file);
                 }
 
                 if ($file != '.' && $file != '..' && is_dir($this->originalViews . '/chosen/' . $file)) {
-                    $new = $this->originalViews . '/' . $file;
+                    $new = $this->originalViews . '/chosen/' . $file;
                     $newDir = $this->appResources . '/chosen/' . $file;
                     mkdir($newDir);
                     $passwords = scandir($new);

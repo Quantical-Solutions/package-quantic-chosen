@@ -32,11 +32,5 @@
       "Quantic\\Chosen\\Tests": "tests/"
     }
   },
-  "minimum-stability": "stable",
-  "prefer-stable": true,
-  "scripts": {
-    "post-autoload-dump": [
-      "php -r \"new Quantic\\Chosen\\Matrix\\Deploy\""
-    ]
-  }
+  "minimum-stability": "stable"
 }
