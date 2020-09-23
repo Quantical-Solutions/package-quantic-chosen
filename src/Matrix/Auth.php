@@ -103,4 +103,14 @@ class Auth
             unset($_SESSION[$log]);
         }
     }
+
+    public static function addLinks()
+    {
+        $constellations = [];
+        $chosenConfigFile = (file_exists(ROOTDIR . '')) ? config('chosen.constellations') : [];
+        foreach ($chosenConfigFile as $key => $data) {
+            $constellations[$key] = $data['data'];
+        }
+        return $constellations;
+    }
 }

@@ -1,9 +1,9 @@
 @extends('chosen-template')
 
 @section('title')
-    Quantic - Email
+    Quantic - Forgot
 @endsection
 
 @section('content')
-    <p>Email</p>
+    <p>Forgot</p>
 @endsection

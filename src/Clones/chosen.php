@@ -114,4 +114,186 @@ return [
 
     'password_timeout' => 10800,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Logic constellations
+    |--------------------------------------------------------------------------
+    |
+    | Are defined all constellations for authentication rooting.
+    | You can redefined URLs and 'as' index.
+    |
+    */
+
+    'namespace' => 'Quantic\\Chosen\\Logic',
+
+    'constellations' => [
+
+        'login_get' => [
+            'data' => [
+                'uri' => 'login',
+                'group' => config('app.url'),
+                'controller' => 'ChosenLogin',
+                'method' => 'showLoginForm',
+                'request' => 'get',
+                'as' => 'login.request'
+            ],
+            'view' => 'chosen/login'
+        ],
+
+        'login_post' => [
+            'data' => [
+                'uri' => 'login',
+                'group' => config('app.url'),
+                'controller' => 'ChosenLogin',
+                'method' => 'login',
+                'request' => 'post',
+                'as' => 'login'
+            ],
+            'view' => 'home'
+        ],
+
+        'logout' => [
+            'data' => [
+                'uri' => 'login',
+                'group' => config('app.url'),
+                'controller' => 'ChosenLogin',
+                'method' => 'logout',
+                'request' => 'post',
+                'as' => 'logout'
+            ],
+            'view' => 'chosen/login'
+        ],
+
+        'register_get' => [
+            'data' => [
+                'uri' => 'register',
+                'group' => config('app.url'),
+                'controller' => 'ChosenRegister',
+                'method' => 'showRegistrationForm',
+                'request' => 'get',
+                'as' => 'register.request'
+            ],
+            'view' => 'chosen/register'
+        ],
+
+        'register_post' => [
+            'data' => [
+                'uri' => 'register',
+                'group' => config('app.url'),
+                'controller' => 'ChosenRegister',
+                'method' => 'register',
+                'request' => 'post',
+                'as' => 'register'
+            ],
+            'view' => 'chosen/register'
+        ],
+
+        'forgot_get' => [
+            'data' => [
+                'uri' => 'password/forgot',
+                'group' => config('app.url'),
+                'controller' => 'ChosenForgot',
+                'method' => 'showLinkRequestForm',
+                'request' => 'get',
+                'as' => 'password.request'
+            ],
+            'view' => 'chosen/password/forgot'
+        ],
+
+        'forgot_post' => [
+            'data' => [
+                'uri' => 'password/forgot',
+                'group' => config('app.url'),
+                'controller' => 'ChosenForgot',
+                'method' => 'sendResetLinkEmail',
+                'request' => 'post',
+                'as' => 'password.email'
+            ],
+            'view' => 'chosen/password/forgot'
+        ],
+
+        'reset_get' => [
+            'data' => [
+                'uri' => 'password/reset/{token}',
+                'group' => config('app.url'),
+                'controller' => 'ChosenReset',
+                'method' => 'showResetForm',
+                'request' => 'get',
+                'as' => 'password.reset'
+            ],
+            'view' => 'chosen/password/reset'
+        ],
+
+        'reset_post' => [
+            'data' => [
+                'uri' => 'password/reset',
+                'group' => config('app.url'),
+                'controller' => 'ChosenReset',
+                'method' => 'reset',
+                'request' => 'post',
+                'as' => 'password.update'
+            ],
+            'view' => 'chosen/password/reset'
+        ],
+
+        'confirm_get' => [
+            'data' => [
+                'uri' => 'password/confirm',
+                'group' => config('app.url'),
+                'controller' => 'ChosenConfirm',
+                'method' => 'showConfirmForm',
+                'request' => 'get',
+                'as' => 'password.confirm'
+            ],
+            'view' => 'chosen/password/confirm'
+        ],
+
+        'confirm_post' => [
+            'data' => [
+                'uri' => 'password/confirm',
+                'group' => config('app.url'),
+                'controller' => 'ChosenConfirm',
+                'method' => 'confirm',
+                'request' => 'post',
+                'as' => 'password.confirmed'
+            ],
+            'view' => 'chosen/password/confirm'
+        ],
+
+        'verify_notice_get' => [
+            'data' => [
+                'uri' => 'email/verify',
+                'group' => config('app.url'),
+                'controller' => 'ChosenVerify',
+                'method' => 'showNoticeForm',
+                'request' => 'post',
+                'as' => 'verification.notice'
+            ],
+            'view' => 'chosen/verify'
+        ],
+
+        'verify_get' => [
+            'data' => [
+                'uri' => 'email/verify/{id}/{hash}',
+                'group' => config('app.url'),
+                'controller' => 'ChosenVerify',
+                'method' => 'verify',
+                'request' => 'post',
+                'as' => 'verification.verify'
+            ],
+            'view' => 'chosen/verify'
+        ],
+
+        'verify_post' => [
+            'data' => [
+                'uri' => 'email/resend',
+                'group' => config('app.url'),
+                'controller' => 'ChosenVerify',
+                'method' => 'resend',
+                'request' => 'post',
+                'as' => 'verification.resend'
+            ],
+            'view' => 'chosen/verify'
+        ],
+    ],
 ];

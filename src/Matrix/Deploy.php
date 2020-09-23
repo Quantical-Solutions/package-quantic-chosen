@@ -41,6 +41,10 @@ class Deploy
             copy($this->originalViews . '/home.blade.php', $this->appResources . '/home.blade.php');
         }
 
+        if (!file_exists($this->appResources . '/chosen-template.blade.php')) {
+            copy($this->originalViews . '/chosen-template.blade.php', $this->appResources . '/chosen-template.blade.php');
+        }
+
         if (!file_exists($this->appResources . '/chosen')) {
 
             mkdir($this->appResources . '/chosen');
