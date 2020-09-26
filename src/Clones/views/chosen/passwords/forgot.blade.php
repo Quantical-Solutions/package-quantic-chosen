@@ -16,18 +16,26 @@
             <div class="chosen-container-body">
                 <form id="forgotForm" method="POST" action="{{ constellation('password/forgot') }}">
                     @csrf
+                    @if(session('status'))
+                        <div class="chosen-container-withIcon chosen-resent">
+                            <span class="chosen-not-valid">
+                                <i class="quantic-icon-warning"></i>
+                                {{ session('status') }}
+                            </span>
+                        </div>
+                    @endif
                     <div class="chosen-form-container">
                         <div class="chosen-container-withIcon">
                             <i class="quantic-icon-envelope"></i>
-                            <label for="login_email">Email</label>
-                            @if($errors->has('login_email'))
+                            <label for="forgot_email">Email</label>
+                            @if($errors->has('forgot_email'))
                                 <span class="chosen-not-valid">
                                     <i class="quantic-icon-warning"></i>
-                                    {{ $errors->first('login_email') }}
+                                    {{ $errors->first('forgot_email') }}
                                 </span>
                             @endif
                         </div>
-                        <input class="{{ $errors->has('login_email') ? ' is-invalid' : '' }}" type="email" id="login_email" name="login_email">
+                        <input class="{{ $errors->has('forgot_email') ? ' is-invalid' : '' }}" type="email" id="forgot_email" name="forgot_email">
                     </div>
                     <div class="chosen-form-container-buttons">
                         <button disabled class="chosen-container-withIcon" type="submit" id="login_submit_btn">

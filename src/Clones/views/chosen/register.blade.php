@@ -23,7 +23,8 @@
                             <label for="register_avatar">Avatar</label>
                         </div>
                         <div class="chosen-image-preview-container">
-                            <i onclick="this.nextElementSibling.click()" class="quantic-icon-picture" title="Upload image"></i>
+                            <i onclick="this.nextElementSibling.nextElementSibling.click()" class="quantic-icon-picture" title="Upload image"></i>
+                            <i onclick="resetChosenImagePreview(this)" class="quantic-icon-cancel1" title="Upload image"></i>
                             <input type="file" accept="image/*" id="register_avatar" name="register_avatar" onchange="displayChosenImagePreview(this)">
                         </div>
                     </div>
@@ -218,7 +219,7 @@
                 </form>
             </div>
             <div class="chosen-container-footer">
-                <a href="#">Back to home</a>
+                <a href="/">Back to home</a>
             </div>
         </div>
     </div>

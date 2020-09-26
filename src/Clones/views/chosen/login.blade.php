@@ -60,7 +60,7 @@
                 </form>
             </div>
             <div class="chosen-container-footer">
-                <a href="#">Back to home</a>
+                <a href="/">Back to home</a>
                 <a href="{{ constellation('password/forgot') }}">Forgot password</a>
             </div>
         </div>

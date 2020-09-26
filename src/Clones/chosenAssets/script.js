@@ -1,4 +1,5 @@
 function displayChosenImagePreview(input) {
+
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
@@ -8,4 +9,10 @@ function displayChosenImagePreview(input) {
 
         reader.readAsDataURL(input.files[0]); // convert to base64 string
     }
+}
+
+function resetChosenImagePreview(elmt) {
+
+    elmt.nextElementSibling.value = '';
+    elmt.parentElement.style.backgroundImage = 'url("/chosen/default-avatar.png")';
 }
