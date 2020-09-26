@@ -14,14 +14,15 @@
                 </div>
             </div>
             <div class="chosen-container-body">
-                <form method="POST" action="">
+                <form id="loginForm" method="POST" action="{{ constellation('login') }}">
                     @csrf
                     <div class="chosen-form-container">
                         <div class="chosen-container-withIcon">
                             <i class="quantic-icon-envelope"></i>
                             <label for="login_email">Email</label>
-                            @if($error->has('login_email'))
+                            @if($errors->has('login_email'))
                                 <span class="chosen-not-valid">
+                                    <i class="quantic-icon-warning"></i>
                                     {{ $errors->first('login_email') }}
                                 </span>
                             @endif
@@ -32,15 +33,17 @@
                         <div class="chosen-container-withIcon">
                             <i class="quantic-icon-key"></i>
                             <label for="login_password">Password</label>
-                            @if($error->has('login_password'))
+                            @if($errors->has('login_password'))
                                 <span class="chosen-not-valid">
+                                    <i class="quantic-icon-warning"></i>
                                     {{ $errors->first('login_password') }}
                                 </span>
                             @endif
                         </div>
                         <input class="{{ $errors->has('login_password') ? ' is-invalid' : '' }}" type="password" id="login_password" name="login_password">
+                        <i onclick="displayPassword(this)" class="password-displayer quantic-icon-locked1"></i>
                     </div>
-                    <div class="chosen-form-container">
+                    <div class="chosen-form-container-buttons">
                         <button disabled class="chosen-container-withIcon" type="submit" id="login_submit_btn">
                             <i class="quantic-icon-rocket"></i>
                             <span>Submit</span>
@@ -50,14 +53,15 @@
                             <span>Reset</span>
                         </button>
                     </div>
+                    <div class="chosen-form-container-remember">
+                        <input type="checkbox" id="login_remember">
+                        <p class="chosen-remember" onclick="this.previousElementSibling.click()">Remember me</p>
+                    </div>
                 </form>
             </div>
             <div class="chosen-container-footer">
-                <div class="chosen-form-container">
-                    <input type="checkbox" id="login_remember">
-                    <p class="chosen-remember" onclick="this.previousElementSibling.click()">Remember me</p>
-                </div>
                 <a href="#">Back to home</a>
+                <a href="{{ constellation('password/forgot') }}">Forgot password</a>
             </div>
         </div>
     </div>

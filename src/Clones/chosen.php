@@ -197,7 +197,7 @@ return [
                 'request' => 'get',
                 'as' => 'password.request'
             ],
-            'view' => 'chosen/password/forgot'
+            'view' => 'chosen/passwords/forgot'
         ],
 
         'forgot_post' => [
@@ -209,7 +209,7 @@ return [
                 'request' => 'post',
                 'as' => 'password.email'
             ],
-            'view' => 'chosen/password/forgot'
+            'view' => 'chosen/passwords/forgot'
         ],
 
         'reset_get' => [
@@ -221,7 +221,7 @@ return [
                 'request' => 'get',
                 'as' => 'password.reset'
             ],
-            'view' => 'chosen/password/reset'
+            'view' => 'chosen/passwords/reset'
         ],
 
         'reset_post' => [
@@ -233,7 +233,7 @@ return [
                 'request' => 'post',
                 'as' => 'password.update'
             ],
-            'view' => 'chosen/password/reset'
+            'view' => 'chosen/passwords/reset'
         ],
 
         'confirm_get' => [
@@ -245,7 +245,7 @@ return [
                 'request' => 'get',
                 'as' => 'password.confirm'
             ],
-            'view' => 'chosen/password/confirm'
+            'view' => 'chosen/passwords/confirm'
         ],
 
         'confirm_post' => [
@@ -257,7 +257,7 @@ return [
                 'request' => 'post',
                 'as' => 'password.confirmed'
             ],
-            'view' => 'chosen/password/confirm'
+            'view' => 'chosen/passwords/confirm'
         ],
 
         'verify_notice_get' => [
